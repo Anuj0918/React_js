@@ -27,6 +27,9 @@ Reactjs - javascript library
  Normal javscript utility function();
  usestate(); -> maintains state of variable;
  useEffect();
+   # Two types of routing
+ - Client side Routing
+ - Server side Routing
 
 
 
