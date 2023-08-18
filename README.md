@@ -15,6 +15,25 @@ Reactjs - javascript library
 -Differential Bundling
 -Https
 -Tree shaking
+
+
+
+
+
+
+![reactjs image](https://github.com/Anuj0918/React_js/assets/131600778/cddaaba9-0303-48a3-bc7f-238b7ff8a357)
+
+
+
+
+
+
+
+
+
+
+
+
 # Two types of import export
  -Default export/ import  
  export default component
