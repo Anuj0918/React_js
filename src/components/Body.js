@@ -3,11 +3,10 @@ import RestaurantCard from "./RestaurantCard";
 import {useState , useEffect} from "react";
 import Shimmer from "./Shimmer"
 import {Link} from "react-router-dom";
-
-
+  
 const Body = () => {
-    const [listOfRestaurants,setlistOfRestaurants] =  useState([]);
-    const [filteredRestaurant, setfilteredRestaurant] =  useState([]);
+    const [listOfRestaurants,setListOfRestaurants] =  useState([]);
+    const [filteredRestaurant, setFilteredRestaurant] =  useState([]);
 
     const[SearchText,setSearchText ] = useState("");
 
@@ -23,8 +22,8 @@ const Body = () => {
 
       console.log(json);
 
-      setlistOfRestaurants(json?.data?.cards[2]?.data?.data?.cards);
-      setfilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
+      setListOfRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+      setFilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
   };
      // conditional rendering
      
@@ -35,12 +34,13 @@ const Body = () => {
       <input type="text" className="Search-Box" value={SearchText}  
           onChange={(e) =>{
      setSearchText(e.target.value);
-          }} />
+          }}
+           />
       <button onClick={ () =>{
  const filteredRestaurant = listOfRestaurants.filter((res) => res.data.name.toLowerCase().
  includes(SearchText.toLowerCase()));
   
-      setfilteredRestaurant(filteredRestaurant);
+      setFilteredRestaurant(filteredRestaurant);
 
       }}      
       >
@@ -48,17 +48,18 @@ const Body = () => {
    </div>
   <button className="filter-btn"
    onClick = {()=>{
-      const filteredlist = listOfRestaurants.filter( 
-   (res)=>res.data.avgRating>4.1
+      const filteredRestaurant = listOfRestaurants.filter( 
+   (res)=>res.data.avgRating > 4
     );
-    setlistOfRestaurants(filteredlist);
+     setFilteredRestaurant(filteredRestaurant);
    }
 } >
-   Top rated restaurant</button>
+   Top rated restaurant 
+    </button>
  </div>
 
   <div className="res-container">
-   {filteredRestaurant.map((restaurant) => (  
+   { filteredRestaurant && filteredRestaurant.map((restaurant) => (  
      <Link 
      key={restaurant.data.id}
      to={"/restaurants/" + restaurant.data.id}>
@@ -71,3 +72,7 @@ const Body = () => {
     );
  };
   export default Body;
+
+
+
+            
